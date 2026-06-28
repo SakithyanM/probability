@@ -1,0 +1,9 @@
+---
+title: "Probability"
+author: "GitHub Copilot"
+format: html
+---
+
+# Probability
+
+This document was created as a Quarto page for the probability workspace.
