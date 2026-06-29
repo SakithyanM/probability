@@ -1,36 +1,35 @@
----
-title: "Probability"
-author: "GitHub Copilot"
-format: html
-execute:
-  echo: false
----
-
-# Probability
-
-This document was created as a Quarto page for the probability workspace.
-
-```{r}
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #| message: false
 library(tidyverse)
-```
-
-```{r}
+#
+#
+#
 #| cache: true
 throw_dice <- function(n, weights = rep(1 / 6, 6)) {
   die1 <- sample(1:6, size = n, replace = TRUE, prob = weights)
   die2 <- sample(1:6, size = n, replace = TRUE, prob = weights)
   die1 + die2
 }
-```
-
-```{r}
+#
+#
+#
 set.seed(10)
 
-weights <- c(0.25, rep(0.75 / 5, 5))
 n_values <- c(10, 20, 50, 100, 1000)
 
-samples <- map(n_values, ~ throw_dice(.x, weights = weights))
+samples <- map(n_values, ~ throw_dice(.x))
 
 df <- tibble(
   n = factor(rep(n_values, times = n_values), levels = n_values),
@@ -41,12 +40,7 @@ ggplot(df, aes(sum)) +
   geom_histogram(binwidth = 1, color = "white") +
   facet_wrap(~ n, scales = "free_y") +
   scale_x_continuous(breaks = 2:12)
-```
-
-```{r}
-log_lr <- function(rolls) {
-  p_loaded <- c(0.30, rep(0.14, 5))
-  p_fair <- rep(1 / 6, 6)
-  log(p_loaded[rolls] / p_fair[rolls])
-}
-```
+#
+#
+#
+#
